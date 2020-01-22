@@ -153,13 +153,22 @@ const findway=(start,end)=>{
 //check if square in the path 
 const inwayx=(starty,endy,startx)=>{
     var virage=endy;
-    for(var j = starty; j < endy+100; j += 100){
+    if(starty<endy){
+     for(var j = starty; j < endy+100; j += 100){
         if(findSquare({x:j,y:startx})){
             virage=j-100;
         }
+    }}
+    else {
+        for(var j = starty; j > endy+100; j -= 100){
+        if(findSquare({x:j,y:startx})){
+            virage=j+100;
+        }
+    }}
+     return virage; 
     }
-    return virage;
-}
+   
+
 
 //drow direction to a square
 const draw=(start,end)=>{
