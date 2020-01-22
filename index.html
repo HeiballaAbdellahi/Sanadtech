@@ -38,7 +38,7 @@
     <div class="navbar">
         <a onclick="putSquare()">Placer Le carré</a>
         <a onclick="toLink()">Lier Les Carrés</a>
-        <a href="javascript:window.location.reload(true)">Réinitialiser</a>
+        <a onclick="clearCanvas()">Réinitialiser</a>
       </div>
 
 <br>
@@ -50,6 +50,9 @@
 
    
 <script>
+    var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+
     let linked =false;
     let placed =true;
     function toLink(){
@@ -121,11 +124,14 @@ function strokeSquare(context, x, y){
     context.fillRect(x-36,y-31,72,63);
 }
 
-var canvas = document.getElementById('myCanvas');
-var context = canvas.getContext('2d');
+
 
 drawGrid(context);
-
+function clearCanvas(){
+   // context.clearRect(0, 0, 1000, 1000);
+   // drawGrid(context)
+    location.reload()
+}
 
 
 const draw=(start,end)=>{
@@ -193,6 +199,9 @@ var mousePos = getSquare(canvas, evt);
     	
     }
     draw(points[0],points[1])
+    context.fillStyle = "#FFF2D6"
+    context.fillRect((Math.round(points[0].x/100)*100)-34,(Math.round(points[0].y/100)*100)-29,72-4,63-4);
+    context.fillRect((Math.round(mousePos.x/100)*100)-34,(Math.round(mousePos.y/100)*100)-29,72-4,63-4);
     points=[]
 
        
