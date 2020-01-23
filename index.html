@@ -169,7 +169,18 @@ const inwayx=(starty,endy,startx)=>{
     }
    
 
-
+// grid matrix
+let gridMatrix=[];
+for(let i=0;i<10;i++){
+    gridMatrix[i]=[]
+}
+for(let i=0;i<10;i++){
+    for(let j=0;j<10;j++){
+        gridMatrix[i][j]="empty";
+    }
+}
+console.log(gridMatrix)
+//
 //drow direction to a square
 const draw=(start,end)=>{
 	var c = document.getElementById("myCanvas");
@@ -219,9 +230,11 @@ canvas.addEventListener('click', function(evt) {
 
     if(!findSquare({x:x,y:y})){//check if the square deosnt aready exist 
         squares.push({x:x,y:y});//puch the square to the list of squars
+        gridMatrix[x/100][y/100]="notempty";//set the same place of it in the matrix as notempty
         strokeSquare(context, x, y)//stroke it
         fillSquare(context, x, y)//file it
         console.log(squares)//to see the squares list in consol
+        console.log(gridMatrix)//shoe the matrix in consol
     }
     };
 
@@ -243,6 +256,9 @@ canvas.addEventListener('click', function(evt) {
         }
     	
     }
+    gridMatrix[points[0].x/100][points[0].y/100]="start";//set the place of the point as the start point in the grid
+    gridMatrix[points[1].x/100][points[1].y/100]="end";//set the place of the point as the start point in the grid
+    console.log(gridMatrix)//show the matrix in console
     draw(points[0],points[1])//call the finction to drow direction between the two points in the points list
     context.fillStyle = "#FFF2D6"//return the two square to their color
     context.fillRect((Math.round(points[0].x/100)*100)-34,(Math.round(points[0].y/100)*100)-29,72-4,63-4);
