@@ -12,5 +12,5 @@ par exemple https://take.ms/qP26c plutôt que celui là https://take.ms/1ds3e.
 Votre algorithme devra être le plus générique possible pour traiter tous les cas en dépit 
 du nombre des obstacles/carrés présents dans la grille au moment de lier les deux carrés concernés.</p>
 <hr>
-for more information about this open source JavaScript web application script : <br> 
+pour plus d'informations sur ce script d'application web JavaScript open source: <br> 
 <a href='https://github.com/HeiballaAbdellahi'>https://github.com/HeiballaAbdellahi/</a>
