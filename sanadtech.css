@@ -56,21 +56,16 @@ body {margin:0;}
 }
 .detailsbar h1 {
   color: #999;
-  margin-bottom: 25px;
   text-align: center;
 }
 
 .detailsbar h3 {
   color: #999;
-  margin-bottom: 25px;
-  padding: 10px;
   text-align: center;
 }
 
 .detailsbar h4 {
   color: #999;
-  margin-bottom: 10px;
-  padding: 10px;
   text-align: center;
 }
 
@@ -81,12 +76,18 @@ body {margin:0;}
 }
 
 
+
 .main {
   padding: 16px;
   margin-right: 160px; /* Same as the width of the sidenav */
   margin-top: 4%; 
   height: 1500px; /* Used in this example to enable scrolling */
 }
+
+img {
+    width:70px;
+    border-radius: 50%;
+  }
 
 .footer {
   color: gray;
