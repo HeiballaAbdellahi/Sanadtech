@@ -55,6 +55,7 @@
 
    
 <script>
+    document.getElementById("putSquare").style.backgroundColor = '#99C262';
     var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
 //at the start
@@ -161,24 +162,7 @@ const findway=(start,end)=>{
     dirextion.push({x:x,y:y});
 }}
 
-//check if square in the path 
-const inwayx=(starty,endy,startx)=>{
-    var virage=endy;
-    if(starty<endy){
-     for(var j = starty; j < endy+100; j += 100){
-        if(findSquare({x:j,y:startx})){
-            virage=j-100;
-        }
-    }}
-    else {
-        for(var j = starty; j > endy+100; j -= 100){
-        if(findSquare({x:j,y:startx})){
-            virage=j+100;
-        }
-    }}
-     return virage; 
-    }
-   
+
 
 // grid matrix
 let gridMatrix=[];
@@ -191,11 +175,13 @@ for(let i=0;i<10;i++){
     }
 }
 
-//
-//using IA to get the shortest path
+/////////////////////////////////////
+//using IA to get the shortest path//
+/////////////////////////////////////
+
 
 //helpers
-function createArray(length) {//to creat an matrix
+function createArray(length) {//creat an matrix
     var arr = new Array(length || 0),
         i = length;
 
@@ -208,7 +194,7 @@ function createArray(length) {//to creat an matrix
 }
 
 
-//a simulation of ArrayDeque in java
+//a simulation of ArrayDeque in javascript
 function ArrayDeque()
 {
     this.stac=new Array();
@@ -231,14 +217,11 @@ function printPath( node) {
         return;
     }
     printPath(node.parent);
-    //document.write(node.show());
     nodes.push({x:node.x,y:node.y})
 }
-console.log("the way")
-console.log(nodes)
 
 
-//Lee algorithm
+//Lee algorithm was in java so i hade to switch it to javascript
 
     // maintain a parent node for printing path
     //Node parent;
@@ -255,17 +238,19 @@ function Node(x, y, dist, parent) {
 };
 
 
-
+//to show and return a table of points between two index plus their distance
 function Util(mat,point1,point2){
     // M x N matrix
-    let M = 10;
+    let M = 10;//10 meaning 1000 cus each point is 100 point of the grid
     let N = 10;
 
     //max possible length
-    let MAX_VALUE = 777777777777777777777777777777777777777777777777777777777777777777777777;
+    let MAX_VALUE = 10;
 
 
 	// Below arrays details all 4 possible movements from a cell
+    //PS: this will lead to is going from top to bottom in this cases it will rend the perfect result
+    //i can add for condition i will if i have time befor the delay
     var row = [-1, 0, 0, 1];
     var col = [0, -1, 1, 0];
 
