@@ -15,27 +15,69 @@
   position: fixed;
   top: 0;
   width: 100%;
+  height: 9%;
+  
 }
 
 .navbar a {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #818181;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 150px 16px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 25px;
 }
 
 .navbar a:hover {
-  background: #ddd;
+  background: #333;
   color: black;
+  
+}
+
+.detailsbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+}
+
+.detailsbar a {
+  float: left;
+  display: block;
+  color: #818181;
+  text-align: center;
+  padding-left: 10px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.detailsbar a:hover {
+  background: #333;
+  color: black;
+  
 }
 
 .main {
   padding: 16px;
-  margin-top: 30px;
+  margin-right: 160px; /* Same as the width of the sidenav */
+  margin-top: 4%; 
   height: 1500px; /* Used in this example to enable scrolling */
+}
+
+.footer {
+color: gray;
+text-align: center;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  
+  padding: 10px;
 }
     </style>
 </head>
@@ -45,17 +87,29 @@
         <a id="toLink" onclick="toLink()">Lier Les Carrés</a>
         <a id="clearCanvas" onclick="clearCanvas()">Réinitialiser</a>
       </div>
+    <div class="detailsbar">
+        <h1 style="color: #999; margin-bottom: 25px;text-align: center;">Sanadtech</h1>
+        <h4 style="color: #999; margin-bottom: 25px;padding: 10px;text-align: center;">Sujet:</h4>
+        <p style="color: #999; margin-bottom: 25px;padding: 10px;text-align: center;">Développez une application web qui offre une interface graphique pour placer manuellement des carrés dans une grille (1000x1000 cases) depuis un menu et de pouvoir lier un carré à un autre en cliquant dessus. L'algorithme utilisé pour lier deux carrés devra trouver le plus court chemin pour les connecter en traversant les lignes de la grille en évitant les autres carrés et en faisant le moins de zigzag possible pour lier les 2 carrés; Préférer ce chemin par exemple https://take.ms/qP26c plutôt que celui là https://take.ms/1ds3e. Votre algorithme devra être le plus générique possible pour traiter tous les cas en dépit du nombre des obstacles/carrés présents dans la grille au moment de lier les deux carrés concernés</p>
+        <h3 style="color: #999; margin-bottom: 25px;padding: 10px;text-align: center;">HEIBALLA Abdellahi</h3>
+        
+                                <a class="css-is-deranged" href="https://github.com/HeiballaAbdellahi" target="_blank">GitHub</a>
+                                <a class="css-is-deranged" href="https://www.linkedin.com/in/heiballaabdellahi/" target="_blank">Linkedin</a>
+                                <a class="css-is-deranged" href="https://www.facebook.com/heiballa.abdellahi" target="_blank">Facebook</a>
+                                <a class="css-is-deranged" href="https://www.instagram.com/heiballa_abdellahi/" target="_blank">Instagram</a>
+                                <a class="css-is-deranged" href="https://mail.google.com/mail/u/?authuser=abdellahmedlemine@gmail.com" target="_blank">Google+</a>
+                                
+    </div>
 
-<br>
-<br>
-<br>
+
+<div class="main">
 
     <canvas id="myCanvas" width="1000" height="1000"></canvas>
       
 
    
 <script>
-    document.getElementById("putSquare").style.backgroundColor = '#99C262';
+    document.getElementById("putSquare").style.backgroundColor = 'rgb(36, 35, 35)';
     var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
 //at the start
@@ -65,7 +119,7 @@ var context = canvas.getContext('2d');
     function toLink(){
         linked=true;
         placed=false;
-        document.getElementById("toLink").style.backgroundColor = '#99C262';
+        document.getElementById("toLink").style.backgroundColor = 'rgb(36, 35, 35)';
         document.getElementById("putSquare").style.backgroundColor = '#333';
         
     }
@@ -73,7 +127,7 @@ var context = canvas.getContext('2d');
     function putSquare(){
         linked=false;
         placed=true;
-        document.getElementById("putSquare").style.backgroundColor = '#99C262';
+        document.getElementById("putSquare").style.backgroundColor = 'rgb(36, 35, 35)';
         document.getElementById("toLink").style.backgroundColor = '#333';
     }
     //function to get the square of the position of the click
@@ -148,7 +202,7 @@ function clearCanvas(){
    // context.clearRect(0, 0, 1000, 1000); just to clear the canvas but reload will do the job
    // drawGrid(context)
     location.reload()
-    document.getElementById("clearCanvas").style.backgroundColor = '#99C262';
+    document.getElementById("clearCanvas").style.backgroundColor = 'rgb(36, 35, 35)';
 }
 
 //list of direction to a square
@@ -503,6 +557,9 @@ canvas.addEventListener('click', function(evt) {
 
 
 </script>
-
+</div>
+<div class="footer">
+    Made with &#9829; by Heiballa Abdellahi.
+</div>
 </body>
 </html> 
